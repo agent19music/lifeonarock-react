@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Discover() {
   return (
-    <div>Discover</div>
+    <div id='page'>
+      Discover page
+    </div>
   )
 }

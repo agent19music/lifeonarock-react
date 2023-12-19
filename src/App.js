@@ -1,21 +1,35 @@
 import './App.css';
-import LandingPage from './Landingpage';
-import Navbar from './Navbar';
-import Footer from './Foooter';
+import { useState, useEffect } from 'react';
+import Landingpage from './pages/Landingpage';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Donate from './Donate'
-import Contact from './Contact'
-import Discover from './Discover';
-import Aboutus from './Aboutus';
-import Termsofservice from './Termsofservice';
+import Donate from './pages/Donate'
+import Contact from './pages/Contact'
+import Discover from './pages/Discover';
+import Aboutus from './pages/Aboutus';
+import Termsofservice from './pages/Termsofservice';
+import Layout from './layout/Layout.js';
+import Navbar from './layout/Navbar.js';
+import Footer from './layout/Footer.js';
+
+
 
 function App() {
+ const [isDarkMode, setIsDarkMode] = useState([]) 
+ const toggleDarkMode = () => {
+  setIsDarkMode(!isDarkMode);
+};
+const toggle = isDarkMode ? ' bg-dark text-white' : 'bg-light text-black'
+const toggle2 = isDarkMode ? 'dark':'light';
+const toggle3 = isDarkMode ? 'white': 'black'
+
   return (
     <div className="App">
 <BrowserRouter>
-      <Navbar/>
+<Navbar/>
   <Routes>  
+          <Route path="/" element={<Layout/>} />
+          <Route index element ={<Landingpage/>}/>
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/discover" element={<Discover />} />
