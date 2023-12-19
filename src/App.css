@@ -2,5 +2,17 @@
     min-height: 80vh;
 }
 #page{
-    min-height: 80vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8e1f2ec;
+}
+
+#navbar{
+    background-color: #f3d3ebec;
+}
+
+#footer{
+    background-color: #f3d3ebec;
 }

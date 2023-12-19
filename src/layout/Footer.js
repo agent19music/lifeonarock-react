@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export default function Footer() {
   return (
     <div>
-        <div>
+        <div id='footer'>
          
          <section className="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
            
@@ -19,7 +19,7 @@ export default function Footer() {
              <Link to="https://github.com/agent19music/lifeonarock-react" className="me-4 link-secondary">
                <i className="fab fa-twitter"></i>
              </Link>
-             <Link to="https://github.com/agent19music/lifeonarock-react" className="me-4 link-secondary">
+             <Link to='mailto:forlifeonarock@gmail.com' className="me-4 link-secondary">
                <i className="fab fa-google"></i>
              </Link>
              <Link to="https://github.com/agent19music/lifeonarock-react" className="me-4 link-secondary">
