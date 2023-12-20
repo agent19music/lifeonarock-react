@@ -31,7 +31,7 @@ const toggle3 = isDarkMode ? 'white': 'black'
           <Route path="/" element={<Layout/>} />
           <Route index element ={<Landingpage/>}/>
           <Route path="/donate" element={<Donate />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<Contact toggle3={toggle3} toggle={toggle}/>} />
           <Route path="/discover" element={<Discover />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/tos" element={<Termsofservice />} />

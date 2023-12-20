@@ -23,7 +23,7 @@ export default function Landingpage() {
     <div className="container">
       <div className="row align-items-center ">
         <div className="col-lg-6 text-center pb-3">
-          <h1>Empowering the next geaneration</h1>
+          <h1>Empowering the next generation</h1>
           <p>Join our commuinity and make a difference</p>
           <button type="button" className="btn btn-primary me-2">Join now</button>
         </div>
