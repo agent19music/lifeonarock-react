@@ -1,4 +1,5 @@
 import React,{useState} from 'react'
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export default function Contact(toggle,toggle3,addFeedback) {
@@ -50,6 +51,33 @@ export default function Contact(toggle,toggle3,addFeedback) {
 
   return (
     <div id='page'>
+      <div className='container' id='contact-card'>
+       <h3>Contact Information</h3>
+       <div id='phone-email'>
+        <div>
+        <h6><i class="fa-solid fa-phone px-3"></i>Phone</h6>
+        <p>+254 745 071 299</p>
+        <p>+254 111 741 655</p>
+        </div>
+        <div>
+        <h6><i class="fa-solid fa-envelope-open px-3"></i>Email Us</h6>
+        <a href='mailto:forlifeonarock@gmail.com'>forlifeonarock@gmail.com</a>
+        </div>
+       </div>
+       <div id='addy-social'> 
+       <div>
+        <h6><i class="fa-solid fa-map px-3"></i>Address</h6>
+         <p>219 Bankai Towers</p>
+         <p>Nairobi, Kenya</p>
+       </div>
+       <div id='social'>
+        <h6>Social</h6>
+        <Link to='#' ><i class="fa-brands fa-instagram"></i></Link>
+        <Link to='#' ><i class="fa-brands fa-x-twitter"></i></Link>
+
+       </div>
+       </div>
+      </div>
       <div className="container">
       <div className="row justify-content-center">
         <div className="col-6">
