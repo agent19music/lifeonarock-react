@@ -11,6 +11,7 @@ import Termsofservice from './pages/Termsofservice';
 import Layout from './layout/Layout.js';
 import Navbar from './layout/Navbar.js';
 import Footer from './layout/Footer.js';
+import Blogs from './pages/Blogs.js';
 
 
 
@@ -35,6 +36,8 @@ const toggle3 = isDarkMode ? 'white': 'black'
           <Route path="/discover" element={<Discover />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/tos" element={<Termsofservice />} />
+          <Route path="/blogs" element={<Blogs />} />
+
         
           
      </Routes> 
