@@ -1,0 +1,37 @@
+{
+    "blogs":[
+        {
+        "id" : 1,
+        "author" : "Brian.K.Too",
+        "poster": "",
+        "title": "Importance of intimacy",
+        "content":"loren ipsum",
+        "like-count": 12,
+        "comments":[
+            {
+                "id":1,
+                "username": "Kurosaki",
+                "comment": "lorem ipsum",
+                "likes": 2
+            }
+        ]
+        },
+        {
+            "id" : 2,
+            "author" : "Brian.K.Too",
+            "poster": "",
+            "title": "Reigniting the fire",
+            "content":"loren ipsum",
+            "like-count": 27,
+            "comments":[
+                {
+                    "id":1,
+                    "username": "Kurosaki",
+                    "comment": "lorem ipsum",
+                    "likes": 2
+                }
+            ]
+            }
+        
+    ]
+}
