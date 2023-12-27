@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function Termsofservice() {
+export default function Termsofservice(toggle,toggle3) {
   return (
-    <div id='page'>Termsofservice</div>
+    <div id='page'>
+      
+    </div>
   )
 }
