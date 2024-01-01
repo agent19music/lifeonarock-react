@@ -17,7 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "json-server --watch blogs.json -p 6001 & PORT=3005 react-scripts start && fg",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
