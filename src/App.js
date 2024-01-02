@@ -23,13 +23,15 @@ function App() {
 const toggle = isDarkMode ? ' bg-dark text-white' : 'bg-light text-black'
 const toggle2 = isDarkMode ? 'dark':'light';
 const toggle3 = isDarkMode ? 'white': 'black'
-const [blogs, setBlogs] = useState({})
+const [blogs, setBlogs] = useState([])
+const [onChange, setOnchange] = useState(false)
 useEffect(()=>{
   fetch ('http://localhost:6001/blogs')
   .then((res) => res.json())
   .then((res)=> setBlogs(res) )
-},[])
+},[onChange])
 
+console.log(blogs)
   return (
     <div className="App">
 <BrowserRouter>
