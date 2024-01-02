@@ -23,6 +23,12 @@ function App() {
 const toggle = isDarkMode ? ' bg-dark text-white' : 'bg-light text-black'
 const toggle2 = isDarkMode ? 'dark':'light';
 const toggle3 = isDarkMode ? 'white': 'black'
+const [blogs, setBlogs] = useState({})
+useEffect(()=>{
+  fetch ('http://localhost:6001/blogs')
+  .then((res) => res.json())
+  .then((res)=> setBlogs(res) )
+},[])
 
   return (
     <div className="App">
@@ -36,7 +42,8 @@ const toggle3 = isDarkMode ? 'white': 'black'
           <Route path="/discover" element={<Discover />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/tos" element={<Termsofservice toggle={toggle} toggle3={toggle3}/>} />
-          <Route path="/blogs" element={<Blogs/>} />
+          <Route path="/blogs" element={<Blogs blogs={blogs}/>} />
+          
 
         
           

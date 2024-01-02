@@ -1,13 +1,9 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import Blog from './Blog'
 
-export default function Blogs() {
-  const [blogs, setBlogs] = useState({})
-  useEffect(()=>{
-    fetch ('http://localhost:6001/blogs')
-    .then((res) => res.json())
-    .then((res)=> setBlogs(res) )
-  },[])
+export default function Blogs(blogs) {
+ 
+  
   return (
     <div className='container p-3'>
       <h2>Blogs</h2>
