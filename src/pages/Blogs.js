@@ -1,12 +1,12 @@
 import React from 'react'
 import Blog from './Blog'
 
-export default function Blogs(blogs) {
+export default function Blogs({blogs}) {
  
   
   return (
-    <div className='container p-3'>
-      <h2>Blogs</h2>
+    <div  id='page'>
+      <h2 className='px-3'>Blogs</h2>
       {blogs.length <1 && <p>Sorry. No blogs available today :3</p>}
     <div className='container row'>
       {

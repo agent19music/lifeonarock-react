@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Swal from 'sweetalert2'
 
-export default function Blog(blogs) {
+export default function Blog({blogs}) {
   function deleteBlog (){
     fetch('',{
       method: 'DELETE'
