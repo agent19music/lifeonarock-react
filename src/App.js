@@ -12,6 +12,7 @@ import Layout from './layout/Layout.js';
 import Navbar from './layout/Navbar.js';
 import Footer from './layout/Footer.js';
 import Blogs from './pages/Blogs.js';
+import Bloginfo from './pages/Bloginfo.js';
 
 
 
@@ -45,6 +46,7 @@ console.log(blogs)
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/tos" element={<Termsofservice toggle={toggle} toggle3={toggle3}/>} />
           <Route path="/blogs" element={<Blogs blogs={blogs}/>} />
+          <Route path="/blogs/:id" element={<Bloginfo blogs={blogs}/>} />
           
 
         
