@@ -54,4 +54,12 @@
     justify-content: space-between;
   }
   
-    
+  #fa-heart {
+    transition: color 0.5s, transform 0.5s;
+  }
+  
+  #fa-heart.liked {
+    color: pink;
+    transform: scale(1.2);
+  }
+     
