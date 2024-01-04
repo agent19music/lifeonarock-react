@@ -63,7 +63,7 @@ export default function Bloginfo() {
                   <div className="card-body">
                     <h6 className="card-title">{comment.username}</h6>
                     <p className="card-text">{comment.comment}</p>
-                    <p className="card-text">Likes: {comment.likes} <i id={like} className={`fas fa-regular fa-heart`} onClick={()=>toggleLike()}></i></p>
+                    <p className="card-text">Likes: {comment.likes} <i id={like} className={`far fa-regular fa-heart`} onClick={()=>toggleLike()}></i></p>
                   </div>
                 </div>
               ))}
