@@ -13,6 +13,7 @@ import Navbar from './layout/Navbar.js';
 import Footer from './layout/Footer.js';
 import Blogs from './pages/Blogs.js';
 import Bloginfo from './pages/Bloginfo.js';
+import Paddrive from './pages/Paddrive.js';
 
 
 
@@ -47,6 +48,7 @@ console.log(blogs)
           <Route path="/tos" element={<Termsofservice toggle={toggle} toggle3={toggle3}/>} />
           <Route path="/blogs" element={<Blogs blogs={blogs}/>} />
           <Route path="/blogs/:id" element={<Bloginfo blogs={blogs}/>} />
+          <Route path="/paddrive" element={<Paddrive toggle={toggle} toggle3={toggle3} />} />
           
 
         
