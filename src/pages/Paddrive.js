@@ -125,15 +125,29 @@ export default function Paddrive({ toggle, toggle3 }) {
                 Donate monthly?:
               </label>
               <input
-                type="checkbox"
-                id="donateMonthly"
-                checked={donateMonthly}
-                onChange={() => setDonateMonthly(!donateMonthly)}
+                type="radio"
+                id="yes"
+                value='yes'
+                checked={donateMonthly==='yes'}
+                onChange={() => setDonateMonthly('yes')}
                 className="form-check-input"
               />
-              <label htmlFor="donateMonthly" className="form-check-label">
-                Yes, I want to donate monthly
+              <label htmlFor="yes" className="form-check-label">
+                Yes
               </label>
+            </div>
+            <div className='form-check'>
+             <input
+             type='radio'
+             id='no'
+             value='no'
+             checked ={donateMonthly==='no'}
+             onChange={()=> setDonateMonthly('no')}
+             className="form-check-input"
+             />
+             <label htmlFor='no' className='form-check-label'>
+              No
+             </label>
             </div>
 
             <button type="submit" className="btn btn-success btn-md">
