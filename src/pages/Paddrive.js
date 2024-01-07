@@ -120,9 +120,9 @@ export default function Paddrive({ toggle, toggle3 }) {
             <div className="mb-3">
               <label
                 htmlFor="donateMonthly"
-                className={`form-label text-${toggle3}`}
+                className={`form-label text-${toggle3} pr-3`}
               >
-                Donate monthly?:
+                Donate monthly?: 
               </label>
               <input
                 type="radio"
@@ -135,8 +135,7 @@ export default function Paddrive({ toggle, toggle3 }) {
               <label htmlFor="yes" className="form-check-label">
                 Yes
               </label>
-            </div>
-            <div className='form-check'>
+            
              <input
              type='radio'
              id='no'
