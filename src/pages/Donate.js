@@ -25,7 +25,7 @@ export default function Donate(toggle,toggle3) {
             <ul>
               <li>1. Credit Card: Visit our secure donation page and enter your credit card information.</li>
               <li>2. PayPal: Send your donation to our PayPal account at seanmotanya@gmail.com.</li>
-              <li>3. Bank Transfer: Contact us for bank transfer details.</li>
+              
             </ul>
 
             <p className={`mt-4${toggle ? ` text-${toggle3}` : ''}`}>
