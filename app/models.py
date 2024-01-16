@@ -14,7 +14,7 @@ class User(db.Model, SerializerMixin):
 
     serialize_rules=('-password')
     id = db.Column(db.Integer,primary_key=True)
-    username = db.Column(db.String(64),unique=True,nullable=False,server_default='')
+    username = db.Column(db.String(64),unique=True,nullable=False)
     email = db.Column(db.String(200),unique=True)
     password = db.Column(db.String(128))
 
@@ -39,7 +39,7 @@ class Author(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    blogs = db.relationship('Blog', backref='authors')
+    blogs = db.relationship('Blog', backref='author')
 
     def __repr__(self):
         return f'<Author {self.name}>'
@@ -57,8 +57,10 @@ class Blog(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
+    comments = db.relationship('Comment', backref='blog')
+
     def __repr__(self):
-        return f'<Blog {self.name}>'
+        return f'<Blog {self.title}>'
     
 class Comment(db.Model, SerializerMixin):
     __tablename__ = 'comments' 
