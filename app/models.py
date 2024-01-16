@@ -18,6 +18,11 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String(200),unique=True)
     password = db.Column(db.String(128))
 
+    @validates('username')
+    def validate_username(self, key, username):
+        assert username != '', "Username must not be empty"
+        return username
+
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
 
