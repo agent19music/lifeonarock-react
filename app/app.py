@@ -30,7 +30,15 @@ def get_all_blogs():
             'comments': blog.comments
         }
         blogs.append(blog_dict)
-    return make_response(jsonify(blogs),200)         
+    return make_response(jsonify(blogs),200)  
+
+@app.route('blogs/<int:id>', methods='GET')
+def get_blog_by_id(id):
+    blog = Blog.query.filter_by(id=id).first()
+    if not blog:
+        return make_response(jsonify({"error":"No such blog exists"}),404)
+    else :
+        return make_response(jsonify(blog.__dict__), 200)
 
 
 if __name__ == '__main__':
