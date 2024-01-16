@@ -1,8 +1,14 @@
+from flask import Flask
 from faker import Faker
 from flask_sqlalchemy import SQLAlchemy
 from models import User, Author, Blog, Comment
 from sqlalchemy.exc import IntegrityError
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
 fake = Faker()
 
 def create_users(num_users):
@@ -54,10 +60,10 @@ def seed_data():
     db = SQLAlchemy()
 
     # Adjust the number of entities as needed
-    num_users = 10
-    num_authors = 5
-    num_blogs = 20
-    num_comments = 30
+    num_users = 2
+    num_authors = 2
+    num_blogs = 2
+    num_comments = 2
 
     try:
         db.create_all()
