@@ -69,6 +69,10 @@ class Comment(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
+    likes = db.Column(db.Integer)
+
+    user_id = db.Column(db.ForeignKey('users.id'), nullable=False)  
+    blog_id = db.Column(db.ForeignKey('blogs.id'), nullable=False)  
 
                           
     
