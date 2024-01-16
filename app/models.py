@@ -12,7 +12,7 @@ db = SQLAlchemy(metadata=metadata)
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules=('-')
+    serialize_rules=('-password')
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(64),unique=True,nullable=False,server_default='')
     email = db.Column(db.String(200),unique=True)
@@ -22,6 +22,11 @@ class User(db.Model, SerializerMixin):
     def validate_username(self, key, username):
         assert username != '', "Username must not be empty"
         return username
+    
+    @validates('email')
+    def validate_email(self, key, email):
+        assert '@' in email, "Invalid email address"
+        return email
 
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
