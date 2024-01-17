@@ -10,7 +10,6 @@ def add_users():
     data = request.get_json()
     username = data['username']
     email = data['email']
-    phone = data['phone']
     password = data['password']
 
  
@@ -81,7 +80,7 @@ def update_user(user_id):
             return jsonify({"success": "User updated successfully"}), 200
 
     else:
-        return jsonify({"error":"User you are trying to update doesn't exist!"}), 404
+        return jsonify({"error":"User you are trying to update does not exist!"}), 404
 
 
 # delete user
