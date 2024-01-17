@@ -21,15 +21,16 @@ def create_comment():
 
 
 # # Get all comment for a specific comment
-# @comment_bp.route('/comment/<int:id>', methods=['GET'])
-# def get_comments_for_question(comment_id):
-#     comment = Comment.query.filter_by(comment_id=comment_id).all()
+#STILL IN DEVELOPMENT
+@comment_bp.route('/blogs/<int:blog_id>', methods=['GET'])
+def get_comments_for_blog(comment_id):
+    comment = Comment.query.filter_by(comment_id=comment_id).all()
 
-#     if not comment:
-#         return jsonify({'message': 'No comment found for the specified comment'})
+    if not comment:
+        return jsonify({'message': 'No comment found for the specified comment'})
 
-#     answer_list = [{'id': answer.id, 'content': answer.content, 'user_id': answer.user_id} for answer in comment]
+    answer_list = [{'id': answer.id, 'content': answer.content, 'user_id': answer.user_id} for answer in comment]
 
-#     return jsonify({'comment': answer_list})
+    return jsonify({'comment': answer_list})
 
 
