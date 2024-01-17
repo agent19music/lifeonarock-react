@@ -45,7 +45,7 @@ def get_user(id):
     else:
         return jsonify({"error":"User not found!"}), 404
 
-#update user
+#update author
 @authour_bp.route('/authors/<int:id>', methods=['PUT'])
 def update_user(id):
     author = Author.query.get(id)
@@ -68,3 +68,17 @@ def update_user(id):
 
     else:
         return jsonify({"error":"Author you are trying to update doesn't exist!"}), 404
+    
+# delete author
+@authour_bp.route("/author/<int:id>", methods=["DELETE"])
+def delete_user(id):
+    author = Author.query.get(id)
+    
+    if author:
+        db.session.delete(author)
+        db.session.commit()
+        return jsonify({"success": "User deleted successfully"}), 200
+
+    else:
+        return jsonify({"error":"User you are trying to delete is not found!"}), 404
+
