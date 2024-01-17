@@ -77,8 +77,8 @@ def delete_user(id):
     if author:
         db.session.delete(author)
         db.session.commit()
-        return jsonify({"success": "User deleted successfully"}), 200
+        return jsonify({"success": "Author deleted successfully"}), 200
 
     else:
-        return jsonify({"error":"User you are trying to delete is not found!"}), 404
+        return jsonify({"error":"Author you are trying to delete is not found!"}), 404
 
