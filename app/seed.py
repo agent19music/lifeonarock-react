@@ -1,14 +1,9 @@
 from faker import Faker
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-from app import create_app  
+from app import app, db  # Assuming app is your Flask app instance
 
 fake = Faker()
-db = SQLAlchemy()
-
-app = create_app()
-app.app_context().push()
-db.init_app(app)
 
 def generate_long_text():
     # Generate a paragraph with at least 300 words
@@ -16,6 +11,10 @@ def generate_long_text():
 
 def seed_data():
     with app.app_context():
+        # Importing models here to ensure they are recognized within the app context
+        from models import User, Author, Blog, Comment
+        from sqlalchemy import func
+
         # Create users
         for _ in range(10):
             username = fake.user_name()
@@ -58,7 +57,4 @@ def seed_data():
             db.session.rollback()
 
 if __name__ == "__main__":
-    from app.models import User, Author, Blog, Comment
-    from sqlalchemy import func
-
     seed_data()
