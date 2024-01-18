@@ -15,6 +15,7 @@ import Blogs from './pages/Blogs.js';
 import Bloginfo from './pages/Bloginfo.js';
 import Paddrive from './pages/Paddrive.js';
 import BlogProvider from './context/BlogContext.js';
+import UserProvider from './context/UserContext.js';
 
 
 
@@ -37,6 +38,7 @@ useEffect(()=>{
 console.log(blogs)
   return (
     <div className="App">
+      <UserProvider>
 <BlogProvider>
 <BrowserRouter>
 <Navbar/>
@@ -55,6 +57,7 @@ console.log(blogs)
      <Footer/>
      </BrowserRouter>
      </BlogProvider>
+     </UserProvider>
     </div>
   );
 }
