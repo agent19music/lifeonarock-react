@@ -28,7 +28,7 @@ const toggle3 = isDarkMode ? 'white': 'black'
 const [blogs, setBlogs] = useState([])
 const [onChange, setOnchange] = useState(false)
 useEffect(()=>{
-  fetch ('http://localhost:6001/blogs')
+  fetch ('/blogs')
   .then((res) => res.json())
   .then((res)=> setBlogs(res) )
 },[onChange])
