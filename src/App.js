@@ -14,6 +14,7 @@ import Footer from './layout/Footer.js';
 import Blogs from './pages/Blogs.js';
 import Bloginfo from './pages/Bloginfo.js';
 import Paddrive from './pages/Paddrive.js';
+import BlogProvider from './context/BlogContext.js';
 
 
 
@@ -36,6 +37,7 @@ useEffect(()=>{
 console.log(blogs)
   return (
     <div className="App">
+<BlogProvider>
 <BrowserRouter>
 <Navbar/>
   <Routes>  
@@ -49,13 +51,10 @@ console.log(blogs)
           <Route path="/blogs" element={<Blogs blogs={blogs}/>} />
           <Route path="/blogs/:id" element={<Bloginfo blogs={blogs}/>} />
           <Route path="/paddrive" element={<Paddrive toggle={toggle} toggle3={toggle3} />} />
-          
-
-        
-          
      </Routes> 
      <Footer/>
      </BrowserRouter>
+     </BlogProvider>
     </div>
   );
 }
