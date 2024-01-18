@@ -18,7 +18,7 @@ db.init_app(app)
 def home():
     return''
 
-@app.route('/blogs', methods ='GET')
+@app.route('/blogs', methods =['GET'])
 def get_all_blogs():
     blogs = []
     for blog in Blog.query.all():
@@ -32,7 +32,7 @@ def get_all_blogs():
         blogs.append(blog_dict)
     return make_response(jsonify(blogs),200)  
 
-@app.route('blogs/<int:id>', methods='GET')
+@app.route('blogs/<int:id>', methods=['GET'])
 def get_blog_by_id(id):
     blog = Blog.query.filter_by(id=id).first()
     if not blog:

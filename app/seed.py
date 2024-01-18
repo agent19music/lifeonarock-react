@@ -1,7 +1,7 @@
 from faker import Faker
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
-from app import create_app  # Assuming your Flask app is in a file named app.py
+from app import create_app  
 
 fake = Faker()
 db = SQLAlchemy()
