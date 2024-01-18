@@ -16,6 +16,7 @@ import Bloginfo from './pages/Bloginfo.js';
 import Paddrive from './pages/Paddrive.js';
 import BlogProvider from './context/BlogContext.js';
 import UserProvider from './context/UserContext.js';
+import AuthorProvider, { AuthorContext } from './context/AuthorContext.js';
 
 
 
@@ -38,6 +39,7 @@ useEffect(()=>{
 console.log(blogs)
   return (
     <div className="App">
+      <AuthorProvider>
       <UserProvider>
 <BlogProvider>
 <BrowserRouter>
@@ -58,6 +60,7 @@ console.log(blogs)
      </BrowserRouter>
      </BlogProvider>
      </UserProvider>
+     </AuthorProvider>
     </div>
   );
 }
