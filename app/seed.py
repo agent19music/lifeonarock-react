@@ -47,7 +47,7 @@ def seed_data():
             user = User.query.order_by(func.random()).first()
             blog = Blog.query.order_by(func.random()).first()
 
-            comment = Comment(content=content, likes=fake.random_int(min=0, max=50), user=user, blog=blog)
+            comment = Comment(content=content, likes=fake.random_int(min=0, max=50), user_id=user.id, blog=blog)
             db.session.add(comment)
 
         try:
