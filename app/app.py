@@ -4,6 +4,8 @@ from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
 
 from models import db,Blog
+from views import *
+from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
@@ -13,6 +15,16 @@ app.json.compact = False
 Migrate(app, db)
 
 db.init_app(app)
+jwt = JWTManager()
+app.config["JWT_SECRET_KEY"] = "fjhjdjhfiskyfvdgvydklvsrfl"
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(hours=1)
+jwt.init_app(app)
+
+app.register_blueprint(user_bp)
+app.register_blueprint(blog_bp)
+app.register_blueprint(authour_bp)
+app.register_blueprint()
+app.register_blueprint()
 
 @app.route('/')
 def home():
