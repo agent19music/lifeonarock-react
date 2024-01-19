@@ -12,7 +12,7 @@ def add_users():
     data = request.get_json()
     username = data['username']
     email = data['email']
-    password = data['password']
+    password = generate_password_hash(data['password'])
 
  
 
