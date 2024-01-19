@@ -23,3 +23,21 @@ def login():
 
     else:
         return jsonify({"error": "User doesn't exist!"}), 404
+    
+# Get logged in user
+@auth_bp.route("/authenticated_user", methods=["GET"])
+@jwt_required()
+def authenticated_user():
+    current_user_id = get_jwt_identity() #geeting current user id
+    user = User.query.get(current_user_id)
+
+    if user:
+        user_data = {
+            'id': user.id,
+            'username':user.username,
+            'phone': user.phone,
+            'email': user.email
+        }
+        return jsonify(user_data), 200
+    else:
+        return jsonify({"error": "User not found"}), 404    
