@@ -2,6 +2,8 @@
 
 from flask import Flask, request, make_response, jsonify
 from flask_migrate import Migrate
+from datetime import timedelta
+
 
 from models import db,Blog
 from views import *
@@ -25,6 +27,16 @@ app.register_blueprint(blog_bp)
 app.register_blueprint(authour_bp)
 app.register_blueprint()
 app.register_blueprint()
+
+# JWT LOADER
+@jwt.token_in_blocklist_loader
+def token_in_blocklist_callback(jwt_header, jwt_data):
+    jti = jwt_data['jti']
+    token = TokenBlocklist.query.filter_by(jti=jti).first()
+    if token:
+        return token 
+    else:
+        return None
 
 @app.route('/')
 def home():
