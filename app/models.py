@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
+from datetime import datetime
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
@@ -27,6 +28,11 @@ class User(db.Model, SerializerMixin):
     def validate_email(self, key, email):
         assert '@' in email, "Invalid email address"
         return email
+    
+class TokenBlocklist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    jti =  db.Column(db.String(100),nullable=True)
+    created_at = db.Column(db.DateTime(), default=datetime.utcnow)    
 
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
