@@ -33,10 +33,8 @@ app.register_blueprint()
 def token_in_blocklist_callback(jwt_header, jwt_data):
     jti = jwt_data['jti']
     token = TokenBlocklist.query.filter_by(jti=jti).first()
-    if token:
-        return token 
-    else:
-        return None
+    return token is not None
+
 
 @app.route('/')
 def home():
