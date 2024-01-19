@@ -25,8 +25,8 @@ jwt.init_app(app)
 app.register_blueprint(user_bp)
 app.register_blueprint(blog_bp)
 app.register_blueprint(authour_bp)
-app.register_blueprint()
-app.register_blueprint()
+app.register_blueprint(auth_bp)
+app.register_blueprint(comment_bp)
 
 # JWT LOADER
 @jwt.token_in_blocklist_loader
