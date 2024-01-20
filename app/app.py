@@ -40,27 +40,6 @@ def token_in_blocklist_callback(jwt_header, jwt_data):
 def home():
     return''
 
-@app.route('/blogs', methods =['GET'])
-def get_all_blogs():
-    blogs = []
-    for blog in Blog.query.all():
-        blog_dict = {
-            "id":blog.id,
-            "title":blog.title,
-            'content': blog.content,
-            'likes': blog.likes,
-            'comments': blog.comments
-        }
-        blogs.append(blog_dict)
-    return make_response(jsonify(blogs),200)  
-
-@app.route('/blogs/<int:id>', methods=['GET'])
-def get_blog_by_id(id):
-    blog = Blog.query.filter_by(id=id).first()
-    if not blog:
-        return make_response(jsonify({"error":"No such blog exists"}),404)
-    else :
-        return make_response(jsonify(blog.__dict__), 200)
 
 
 if __name__ == '__main__':
