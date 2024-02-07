@@ -1,10 +1,13 @@
-from sqlite3 import IntegrityError
-from app import app
-from sqlalchemy import SQLAlchemy
-from flask import Flask
-from models  import Blog,Author,User,Comment,db
 from faker import Faker
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import IntegrityError
+from app import create_app 
 fake = Faker()
+db = SQLAlchemy()
+
+app = create_app()
+app.app_context().push()
+db.init_app(app)
 
 def generate_long_text():
     # Generate a paragraph with at least 300 words
@@ -12,10 +15,6 @@ def generate_long_text():
 
 def seed_data():
     with app.app_context():
-        # Importing models here to ensure they are recognized within the app context
-        from models import User, Author, Blog, Comment
-        from sqlalchemy import func
-
         # Create users
         for _ in range(10):
             username = fake.user_name()
@@ -48,7 +47,7 @@ def seed_data():
             user = User.query.order_by(func.random()).first()
             blog = Blog.query.order_by(func.random()).first()
 
-            comment = Comment(content=content, likes=fake.random_int(min=0, max=50), user_id=user.id, blog=blog)
+            comment = Comment(content=content, likes=fake.random_int(min=0, max=50), user=user, blog=blog)
             db.session.add(comment)
 
         try:
@@ -58,4 +57,7 @@ def seed_data():
             db.session.rollback()
 
 if __name__ == "__main__":
+    from app.models import User, Author, Blog, Comment
+    from sqlalchemy import func
+
     seed_data()
