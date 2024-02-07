@@ -1,13 +1,13 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Landingpage from './pages/Landingpage';
+import Landingpage from './pages/Landingpage.js';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import { Route } from 'react-router-dom';
-import Donate from './pages/Donate'
-import Contact from './pages/Contact'
-import Discover from './pages/Discover';
-import Aboutus from './pages/Aboutus';
-import Termsofservice from './pages/Termsofservice';
+import Donate from './pages/Donate.js'
+import Contact from './pages/Contact.js'
+import Discover from './pages/Discover.js';
+import Aboutus from './pages/Aboutus.js';
+import Termsofservice from './pages/Termsofservice.js';
 import Layout from './layout/Layout.js';
 import Navbar from './layout/Navbar.js';
 import Footer from './layout/Footer.js';
