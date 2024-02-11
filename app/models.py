@@ -1,14 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.orm import validates
 from datetime import datetime
 
-metadata = MetaData(naming_convention={
-    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-})
 
-db = SQLAlchemy(metadata=metadata)
+db = SQLAlchemy()
 
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
@@ -19,6 +15,7 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String(200),unique=True)
     password = db.Column(db.String(128))
 
+    comments = db.relationship('Comment', backref=db.backref('user', lazy=True), cascade='all, delete-orphan')
     @validates('username')
     def validate_username(self, key, username):
         assert username != '', "Username must not be empty"
@@ -45,7 +42,7 @@ class Author(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    blogs = db.relationship('Blog', backref='author')
+    blogs = db.relationship('Blog', backref=db.backref('author', lazy=True))
 
     def __repr__(self):
         return f'<Author {self.name}>'
@@ -69,16 +66,17 @@ class Blog(db.Model, SerializerMixin):
         return f'<Blog {self.title}>'
     
 class Comment(db.Model, SerializerMixin):
+    """Comments left by users about blogs"""
     __tablename__ = 'comments' 
 
-    serialize_rules = ('-')
+    serialize_rules = ('-blog','-user.comments')
 
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
     likes = db.Column(db.Integer)
 
-    user_id = db.Column(db.ForeignKey('users.id'), nullable=False)  
-    blog_id = db.Column(db.ForeignKey('blogs.id'), nullable=False)  
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id', ondelete = 'CASCADE'), nullable=False)  
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id', ondelete='CASCADE'), nullable=False)  
 
                           
     
