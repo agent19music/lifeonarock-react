@@ -50,7 +50,7 @@ class Author(db.Model, SerializerMixin):
 class Blog(db.Model, SerializerMixin):
     __tablename__ = 'blogs'
 
-    serialize_rules = ('-')
+    serialize_rules = ('-comments.blog',)
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(128), nullable=False)
@@ -60,7 +60,7 @@ class Blog(db.Model, SerializerMixin):
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
 
-    comments = db.relationship('Comment', backref='blog')
+    comments = db.relationship('Comment', backref=db.backref('blog', lazy=True),cascade='all, delete-orphan')
 
     def __repr__(self):
         return f'<Blog {self.title}>'
@@ -74,6 +74,7 @@ class Comment(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
     likes = db.Column(db.Integer)
+    date_posted = db.Column(db.DateTime, default=datetime.utcnow)
 
     user_id = db.Column(db.Integer,db.ForeignKey('users.id', ondelete = 'CASCADE'), nullable=False)  
     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id', ondelete='CASCADE'), nullable=False)  
