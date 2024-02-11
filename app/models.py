@@ -9,7 +9,7 @@ db = SQLAlchemy()
 class User(db.Model, SerializerMixin):
     __tablename__ = 'users'
 
-    serialize_rules=('-password')
+    serialize_rules=('-comments', '-password')
     id = db.Column(db.Integer,primary_key=True)
     username = db.Column(db.String(64),unique=True,nullable=False)
     email = db.Column(db.String(200),unique=True)
@@ -34,7 +34,7 @@ class TokenBlocklist(db.Model):
 class Author(db.Model, SerializerMixin):
     __tablename__ = 'authors'
 
-    serialize_rules = ('-')
+    serialize_rules = ('-email',)
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(128), nullable=False)
     email = db.Column(db.String(64))
