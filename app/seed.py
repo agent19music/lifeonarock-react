@@ -128,12 +128,12 @@ with app.app_context():
 
     users = {user.username: user for user in User.query.all()}
 
-    print("Seeding comments ....")
+    print("💬💬 Seeding comments ....")
     comment_data = [
-        {"content": "Great blog! Very insightful.", "likes": 10, "user_id": users["Naruto Uzumaki"].id, "blog_id": blog_data["Importance of intimacy"].id},
-        {"content": "I totally agree with your points.", "likes": 15, "user_id": users["Sasuke Uchiha"].id, "blog_id": blog_data["Reigniting the fire"].id},
-        {"content": "This is a very well-written blog.", "likes": 20, "user_id": users["Luffy Monkey D."].id, "blog_id": blog_data["Importance of intimacy"].id},
-        {"content": "Thanks for sharing this!", "likes": 25, "user_id": users["Ichigo Kurosaki"].id, "blog_id": blog_data["Reigniting the fire"].id},
+        {"content": "Great blog! Very insightful.", "likes": 10, "user_id": users["Naruto Uzumaki"].id, "blog_id": Blog.query.filter_by(title="Importance of intimacy").first().id},
+        {"content": "I totally agree with your points.", "likes": 15, "user_id": users["Sasuke Uchiha"].id, "blog_id": Blog.query.filter_by(title="Reigniting the fire").first().id},
+        {"content": "This is a very well-written blog.", "likes": 20, "user_id": users["Luffy Monkey D."].id, "blog_id": Blog.query.filter_by(title="Importance of intimacy").first().id},
+        {"content": "Thanks for sharing this!", "likes": 25, "user_id": users["Ichigo Kurosaki"].id, "blog_id": Blog.query.filter_by(title="Reigniting the fire").first().id},
     ]
     for data in comment_data:
         comment = Comment(**data)
