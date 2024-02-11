@@ -56,6 +56,7 @@ class Blog(db.Model, SerializerMixin):
     title = db.Column(db.String(128), nullable=False)
     content = db.Column(db.Text)
     author_id = db.Column(db.ForeignKey('authors.id'),nullable=False)
+    poster = db.Column(db.String)
     likes = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
