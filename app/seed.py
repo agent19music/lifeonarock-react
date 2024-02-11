@@ -3,7 +3,7 @@ from models import Author, Blog, db,User, Comment
 from sqlalchemy import MetaData
 
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///db.sqlite"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///app.db"
 db.init_app(app)
 
 with app.app_context():

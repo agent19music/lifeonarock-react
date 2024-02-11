@@ -19,7 +19,7 @@ migarate = Migrate(app, db)
 db.init_app(app)
 
 app.register_blueprint(blog_bp)
-app.register_blueprint(blog_bp)
+app.register_blueprint(comment_bp)
 
 
 if __name__ == '__main__':
