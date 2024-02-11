@@ -17,7 +17,7 @@ with app.app_context():
         {"name": "Brian K Too", "email": "brianktoo@gmail.com", "id" : 1},
         {"name": "Sean Motanya", "email": "seanmotanya@gmail.com", "id" : 2},
         {"name": "Kight Yagami", "email": "light@gmail.com", "id" : 3},
-        {"name": "Jiaraya", "email": "gutsyninja69@gmail.com", "id" : 4}
+        {"name": "Jiraiya", "email": "gutsyninja69@gmail.com", "id" : 4}
     ]
     for data in author_data:
         author = Author(**data)
@@ -56,7 +56,7 @@ with app.app_context():
         "likes": 30
         },
         {
-        "author_id" : authors["Brian K Too"].id,
+        "author_id" : authors["Sean Motanya"].id,
         "poster": "/poster4.png",
         "title": "The Art of Mindfulness",
         "content":"Mindfulness is the practice of being fully present in the moment, aware of our thoughts, feelings, and actions, without judgment or distraction. It's about being in tune with our bodies and minds, and experiencing life as it unfolds. Mindfulness can help us reduce stress, improve focus, and enhance our overall well-being. It's a simple yet powerful practice that can be incorporated into our daily lives.",
@@ -70,7 +70,7 @@ with app.app_context():
         "likes": 24
         },
     {
-        "author_id" : authors["Brian K Too"].id,
+        "author_id" : authors["Jiraiya"].id,
         "poster": "/poster6.png",
         "title": "The Power of Gratitude",
         "content":"Gratitude is a powerful emotion that can make your life better in so many ways. It's about focusing on what's good in your life and being thankful for the things you have. Gratitude is the key to a happier, healthier life. It can improve your relationships, reduce stress, and even improve your physical health. Practicing gratitude every day can help you stay positive and optimistic, which can lead to better outcomes in your life.",
@@ -84,7 +84,7 @@ with app.app_context():
         "likes": 28
     },
     {
-        "author_id" : authors["Brian K Too"].id,
+        "author_id" : authors["Sean Motanya"].id,
         "poster": "/poster8.png",
         "title": "The Joy of Learning",
         "content":"Learning is a lifelong journey. It's about exploring new ideas, acquiring new skills, and expanding our understanding of the world. It's about curiosity, creativity, and growth. Learning can bring joy, fulfillment, and a sense of achievement. It can open doors to new opportunities and enrich our lives in countless ways. So, let's embrace the joy of learning and make the most of our journey.",
