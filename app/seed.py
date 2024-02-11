@@ -23,7 +23,7 @@ with app.app_context():
 
     db.session.commit()
 
-    print("Seeding blogs .......")
+    print("📜📜 Seeding blogs .......")
     authors = {author.name: author for author in Author.query.all()}
 
     blog_data = [
