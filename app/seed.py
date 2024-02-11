@@ -130,10 +130,10 @@ with app.app_context():
 
     print("Seeding comments ....")
     comment_data = [
-        {"content": "Great blog! Very insightful.", "likes": 10, "user_id": users["Naruto Uzumaki"].id, "blog_id": blogs["Importance of intimacy"].id},
-        {"content": "I totally agree with your points.", "likes": 15, "user_id": users["Sasuke Uchiha"].id, "blog_id": blogs["Reigniting the fire"].id},
-        {"content": "This is a very well-written blog.", "likes": 20, "user_id": users["Luffy Monkey D."].id, "blog_id": blogs["Importance of intimacy"].id},
-        {"content": "Thanks for sharing this!", "likes": 25, "user_id": users["Ichigo Kurosaki"].id, "blog_id": blogs["Reigniting the fire"].id},
+        {"content": "Great blog! Very insightful.", "likes": 10, "user_id": users["Naruto Uzumaki"].id, "blog_id": blog_data["Importance of intimacy"].id},
+        {"content": "I totally agree with your points.", "likes": 15, "user_id": users["Sasuke Uchiha"].id, "blog_id": blog_data["Reigniting the fire"].id},
+        {"content": "This is a very well-written blog.", "likes": 20, "user_id": users["Luffy Monkey D."].id, "blog_id": blog_data["Importance of intimacy"].id},
+        {"content": "Thanks for sharing this!", "likes": 25, "user_id": users["Ichigo Kurosaki"].id, "blog_id": blog_data["Reigniting the fire"].id},
     ]
     for data in comment_data:
         comment = Comment(**data)
