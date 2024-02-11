@@ -1,1 +1,0 @@
-from .blog_view import *
