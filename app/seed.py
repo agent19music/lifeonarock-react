@@ -1,5 +1,5 @@
 from flask import Flask
-from models import Author, Blog, db
+from models import Author, Blog, db,User, Comment
 from sqlalchemy import MetaData
 
 app = Flask(__name__)
@@ -113,4 +113,36 @@ with app.app_context():
 
     db.session.commit()
 
-    print("Done seeding")
+    print("🙋🏾🙋🏾 Seeding users ....")
+    user_data = [
+        {"username": "Naruto Uzumaki", "email": "naruto@konoha.com", "password" : "ramenlover"},
+        {"username": "Sasuke Uchiha", "email": "sasuke@konoha.com", "password" : "avenger123"},
+        {"username": "Luffy Monkey D.", "email": "luffy@onepiece.com", "password" : "meatlover"},
+        {"username": "Ichigo Kurosaki", "email": "ichigo@bleach.com", "password" : "getsuga"},
+    ]
+    for data in user_data:
+        user = User(**data)
+        db.session.add(user)
+
+    db.session.commit()
+
+    users = {user.username: user for user in User.query.all()}
+
+    print("Seeding comments ....")
+    comment_data = [
+        {"content": "Great blog! Very insightful.", "likes": 10, "user_id": users["Naruto Uzumaki"].id, "blog_id": blogs["Importance of intimacy"].id},
+        {"content": "I totally agree with your points.", "likes": 15, "user_id": users["Sasuke Uchiha"].id, "blog_id": blogs["Reigniting the fire"].id},
+        {"content": "This is a very well-written blog.", "likes": 20, "user_id": users["Luffy Monkey D."].id, "blog_id": blogs["Importance of intimacy"].id},
+        {"content": "Thanks for sharing this!", "likes": 25, "user_id": users["Ichigo Kurosaki"].id, "blog_id": blogs["Reigniting the fire"].id},
+    ]
+    for data in comment_data:
+        comment = Comment(**data)
+        db.session.add(comment)
+
+    db.session.commit()
+
+    comments = {comment.content: comment for comment in Comment.query.all()}
+
+
+
+    print("Done seeding ✅✅")
