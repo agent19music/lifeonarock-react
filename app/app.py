@@ -21,6 +21,9 @@ db.init_app(app)
 app.register_blueprint(blog_bp)
 app.register_blueprint(comment_bp)
 
+@app.route("/")
+def home():
+    return "<p>Welcome to Life on a Rock API!</p>"
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
