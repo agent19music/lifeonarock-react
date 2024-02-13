@@ -43,34 +43,32 @@ export default function Bloginfo() {
   };
 
   return (
-    <div id='content' className="container mt-4">
-      {blog && (
-        <>
-          <div className="row">
-            <div className="col-md-4">
-              <img src={blog.poster} alt="Blog Poster" className="img-fluid rounded" />
+    <div>
+      {blog &&
+    <div className="container bg-light text-black" id='blog'>
+    <h1 className="text-center text-black mt-5">{blog.title}</h1>
+
+    <div className="row justify-content-center mt-4 text-black">
+      <div className="col-md-6 card bg-light text-black">
+        <div className="card-body">
+          <img src={blog.poster} alt="Blog Poster" className="img-fluid rounded mb-4" />
+          <p>{blog.content}</p>
+
+          <h2 className="mt-4 mb-4 text-black">Comments</h2>
+          {blog.comments.map(comment => (
+            <div key={comment.id} className="mb-2 card bg-light text-black">
+              <div className="card-body">
+                <h6 className="card-title text-black">{comment.username}</h6>
+                <p className="card-text text-black">{comment.comment}</p>
+                <p className="card-text text-black">Likes: {comment.likes} <i id={like} className="far fa-regular fa-heart" onClick={()=>toggleLike()}></i></p>
+              </div>
             </div>
-            <div className="col-md-8">
-              <h3>{blog.title}</h3>
-              <p>{blog.content}</p>
-            </div>
-          </div>
-          <div className="row mt-4">
-            <div className="col-md-12">
-              <h5>Comments:</h5>
-              {blog.comments.map(comment => (
-                <div key={comment.id} className="card mb-2">
-                  <div className="card-body">
-                    <h6 className="card-title">{comment.username}</h6>
-                    <p className="card-text">{comment.comment}</p>
-                    <p className="card-text">Likes: {comment.likes} <i id={like} className={`far fa-regular fa-heart`} onClick={()=>toggleLike()}></i></p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+          ))}
+        </div>
+      </div>
     </div>
+  
+  </div>}
+  </div>
   );
 }
